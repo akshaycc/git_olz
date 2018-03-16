@@ -1,0 +1,44 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="OLX_TEST">
+    <parameter name="test-uri" value="https://www.olx.ua/"/>
+    <!-- 2 options for browsers: FF | CHROME-->
+    <parameter name="browser" value="CHROME"/>
+    <!-- 2 options for OS: MAC | WINDOWS-->
+    <parameter name="sys" value="WINDOWS"/>
+    <test name="PositiveTestsLogin">
+        <groups>
+            <run>
+                <include name="SetUP"/>
+                <include name="login" />
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.TestBase"></class>
+            <class name="tests.PositiveTests"></class>
+        </classes>
+    </test>
+    <test name="PositiveTestsLogout">
+        <groups>
+            <run>
+                <include name="SetUP"/>
+                <include name="logout" />
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.TestBase"></class>
+            <class name="tests.PositiveTests"></class>
+        </classes>
+    </test>
+    <test name="NegativeTests">
+        <groups>
+            <run>
+                <include name="SetUP"/>
+                <include name="NegativeTests" />
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.TestBase"></class>
+            <class name="tests.NegativeTests"></class>
+        </classes>
+    </test>
+</suite>
